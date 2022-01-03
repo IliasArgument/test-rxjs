@@ -41,7 +41,7 @@ const ControlComponent = () => {
         click$.next();
         setState('wait');
         click$.next();
-    }, [])
+    }, [click$])
 
     useEffect(() => {
         const doubleClick$ = click$.pipe(
@@ -73,7 +73,7 @@ const ControlComponent = () => {
         return (() => {
             subscribtion$.unsubscribe();
         });
-    }, [state]);
+    }, [state, click$, stop$]);
     return (
         <section className="stopwatch">
             <DisplayComponent
